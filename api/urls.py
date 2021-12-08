@@ -10,9 +10,9 @@ router.register('todos', TodoViewSet, basename='todos')
 
 # 上記以外はurlpatternsに追記
 urlpatterns = [
-    path('post-list', PostListView.as_view(), name='post-list'),
+    path('post-list/', PostListView.as_view(), name='post-list'),
     path('post-detail/<str:pk>/', PostRetrieveView.as_view(), name='post-detail'),
-    path('todo-list', TodoListView.as_view(), name='todo-detail'),
+    path('todo-list/', TodoListView.as_view(), name='todo-detail'),
     path('todo-detail/<str:pk>', TodoRetrieveView.as_view(), name='todo-detail'),
     # エンドユーザ登録path
     path('register/', CreateUserView.as_view(), name='register'),
