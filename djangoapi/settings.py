@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from decouple import config
-from dj_dtabase_url import parse as dburl
-
+from dj_database_url import parse as dburl
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -36,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api.appsApiConfig',
+    'api.apps.ApiConfig',
     'rest_framework',
     'corsheaders',
     'djoser',
@@ -103,7 +102,7 @@ WSGI_APPLICATION = 'djangoapi.wsgi.application'
 default_dburl = 'sqlite:///' + str(BASE_DIR / "db.sqlite3") 
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl. cast=dburl),
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
 
 
